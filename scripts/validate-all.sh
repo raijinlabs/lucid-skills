@@ -3,11 +3,21 @@
 # Checks: required files exist, package.json is valid JSON, skill.yaml or src/ present
 
 set -euo pipefail
-SKILLS_DIR="$(cd "$(dirname "$0")/../skills" && pwd)"
+REPO_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+SKILLS_DIR="$REPO_ROOT/skills"
 ERRORS=0
+COUNT=0
+
+validate_json() {
+  node -e "
+    try { JSON.parse(require('fs').readFileSync(process.argv[1],'utf8')); process.exit(0); }
+    catch { process.exit(1); }
+  " "$1" 2>/dev/null
+}
 
 for skill_dir in "$SKILLS_DIR"/*/; do
   name=$(basename "$skill_dir")
+  COUNT=$((COUNT + 1))
 
   # Must have package.json
   if [ ! -f "$skill_dir/package.json" ]; then
@@ -17,8 +27,7 @@ for skill_dir in "$SKILLS_DIR"/*/; do
   fi
 
   # package.json must be valid JSON
-  if ! python3 -c "import json; json.load(open('$skill_dir/package.json'))" 2>/dev/null && \
-     ! node -e "JSON.parse(require('fs').readFileSync('$skill_dir/package.json','utf8'))" 2>/dev/null; then
+  if ! validate_json "$skill_dir/package.json"; then
     echo "ERROR: $name — invalid package.json"
     ERRORS=$((ERRORS + 1))
   fi
@@ -28,14 +37,9 @@ for skill_dir in "$SKILLS_DIR"/*/; do
     echo "WARN:  $name — no skill.yaml or src/ directory"
   fi
 
-  # Must have skills/ directory (contains actual skill definitions)
-  if [ ! -d "$skill_dir/skills" ]; then
-    echo "WARN:  $name — no skills/ directory"
-  fi
-
   # Check openclaw.plugin.json if present
   if [ -f "$skill_dir/openclaw.plugin.json" ]; then
-    if ! node -e "JSON.parse(require('fs').readFileSync('$skill_dir/openclaw.plugin.json','utf8'))" 2>/dev/null; then
+    if ! validate_json "$skill_dir/openclaw.plugin.json"; then
       echo "ERROR: $name — invalid openclaw.plugin.json"
       ERRORS=$((ERRORS + 1))
     fi
@@ -45,7 +49,7 @@ for skill_dir in "$SKILLS_DIR"/*/; do
 done
 
 echo ""
-echo "Validated $(ls -d "$SKILLS_DIR"/*/ | wc -l) skills, $ERRORS errors"
+echo "Validated $COUNT skills, $ERRORS errors"
 
 if [ "$ERRORS" -gt 0 ]; then
   exit 1
