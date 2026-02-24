@@ -1,0 +1,22 @@
+lucid: "1.0"
+name: lucid-predict
+version: "4.0.0"
+description: "Prediction market intelligence — odds analysis, Kelly criterion sizing, cross-platform arbitrage, and portfolio tracking"
+author: "Lucid Foundation"
+license: "MIT"
+
+requires:
+  mcps: []
+  env: []
+
+skills:
+  - market-research
+  - odds-analysis
+  - arbitrage
+  - portfolio
+
+heartbeat: HEARTBEAT.md
+
+platforms:
+  claude-code: true
+  openclaw: true
