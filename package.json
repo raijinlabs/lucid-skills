@@ -1,0 +1,19 @@
+{
+  "name": "lucid-skills",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Open-source AgentSkills plugin collection for the Lucid AI platform",
+  "workspaces": [
+    "skills/*"
+  ],
+  "scripts": {
+    "validate": "bash scripts/validate-all.sh",
+    "lint": "bash scripts/validate-all.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/raijinlabs/lucid-skills.git"
+  },
+  "license": "MIT",
+  "author": "RaijinLabs <contact@raijinlabs.com>"
+}
