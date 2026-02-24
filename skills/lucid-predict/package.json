@@ -1,0 +1,26 @@
+{
+  "name": "lucid-predict",
+  "version": "4.0.0",
+  "description": "Prediction market intelligence skills for AI agents — odds analysis, Kelly criterion, arbitrage detection, portfolio tracking",
+  "type": "module",
+  "license": "MIT",
+  "author": "Lucid Foundation",
+  "keywords": [
+    "agentskills",
+    "skills",
+    "prediction-markets",
+    "polymarket",
+    "manifold",
+    "arbitrage",
+    "lucid-foundation"
+  ],
+  "files": [
+    "skills",
+    "HEARTBEAT.md",
+    "skill.yaml",
+    ".claude-plugin",
+    "openclaw.plugin.json",
+    "README.md",
+    "LICENSE"
+  ]
+}

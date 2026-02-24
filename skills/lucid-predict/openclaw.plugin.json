@@ -1,0 +1,12 @@
+{
+  "id": "lucid-predict",
+  "name": "Lucid Predict",
+  "version": "4.0.0",
+  "description": "Prediction market intelligence skills",
+  "skills": [
+    "skills/market-research",
+    "skills/odds-analysis",
+    "skills/arbitrage",
+    "skills/portfolio"
+  ]
+}
