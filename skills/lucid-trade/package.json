@@ -1,10 +1,47 @@
 {
-  "name": "lucid-trade",
-  "version": "4.0.0",
-  "description": "Crypto trading intelligence skills for AI agents — technical analysis, position sizing, risk management, backtesting",
+  "name": "@raijinlabs/trade",
+  "version": "5.0.0",
+  "description": "Lucid Trade — Universal Crypto Trading MCP: multi-exchange market data, technical analysis, position management, risk engine, and backtesting",
   "type": "module",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "trade-mcp": "dist/bin.js"
+  },
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit",
+    "lint": "prettier --check .",
+    "format": "prettier --write ."
+  },
+  "keywords": [
+    "crypto",
+    "trading",
+    "technical-analysis",
+    "defi",
+    "mcp",
+    "exchange",
+    "backtesting",
+    "risk-management",
+    "portfolio"
+  ],
   "license": "MIT",
-  "author": "Lucid Foundation",
-  "keywords": ["agentskills", "skills", "crypto", "trading", "defi", "technical-analysis", "lucid-foundation"],
-  "files": ["skills", "HEARTBEAT.md", "skill.yaml", ".claude-plugin", "openclaw.plugin.json", "README.md", "LICENSE"]
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.26.0",
+    "@supabase/supabase-js": "^2.49.4",
+    "bottleneck": "^2.19.5",
+    "decimal.js": "^10.4.3",
+    "zod": "^3.24.4"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.21",
+    "prettier": "^3.5.3",
+    "tsup": "^8.4.0",
+    "typescript": "^5.8.3",
+    "vitest": "^3.1.3"
+  }
 }
