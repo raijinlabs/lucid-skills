@@ -2,6 +2,7 @@ import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import { z } from 'zod';
 import type { PluginConfig } from '../core/types/config.js';
 import { createTools, type ToolDefinition } from '../core/tools/index.js';
+import { createBrainTools } from '../brain/index.js';
 import { PLUGIN_ID, PLUGIN_NAME } from '../core/plugin-id.js';
 import { logger } from '../core/utils/logger.js';
 
@@ -26,11 +27,14 @@ export function createTaxServer(config: PluginConfig): McpServer {
     version: '1.0.0',
   });
 
-  const tools = createTools(config);
-  for (const tool of tools) {
+  const coreTools = createTools(config);
+  const brainTools = createBrainTools({ config });
+  const allTools = [...coreTools, ...brainTools];
+
+  for (const tool of allTools) {
     registerTool(server, tool);
   }
 
-  logger.info(`${PLUGIN_NAME} MCP server created with ${tools.length} tools`);
+  logger.info(`${PLUGIN_NAME} MCP server created with ${allTools.length} tools (${coreTools.length} core + ${brainTools.length} brain)`);
   return server;
 }
