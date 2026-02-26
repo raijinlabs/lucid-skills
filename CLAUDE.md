@@ -12,7 +12,7 @@ bash scripts/validate-all.sh  # Validate all plugins
 ## Structure
 ```
 skills/
-  lucid-audit/            # Smart contract security
+  lucid-audit/            # Smart contract security v2.0 — brain layer (5 AI tools)
   lucid-bridge/           # Startup ops integration (Notion/Linear/Slack/GitHub)
   lucid-compete/          # Competitive intelligence
   lucid-defi/             # DeFi protocols
@@ -21,13 +21,13 @@ skills/
   lucid-invoice/          # Billing / revenue management
   lucid-meet/             # Meeting intelligence
   lucid-metrics/          # Product analytics
-  lucid-observability/    # Production monitoring (Sentry, OTel) — 7 sub-skills
+  lucid-observability/    # Production monitoring (Sentry, OTel) v5.0 — 7 sub-skills + brain layer (5 AI tools)
   lucid-predict/          # Prediction markets (Polymarket, Manifold) v5.0
   lucid-propose/          # RFP / proposal engine
   lucid-prospect/         # Sales prospecting / lead discovery
   lucid-recruit/          # ATS / hiring pipeline
   lucid-seo/              # SEO intelligence
-  lucid-tax/              # Crypto tax compliance
+  lucid-tax/              # Crypto tax compliance v2.0 — brain layer (5 AI tools)
   lucid-trade/            # Crypto trading intelligence v5.0 — 7 sub-skills
   lucid-veille/           # Content monitoring + auto-publishing v4.0
 templates/
@@ -38,8 +38,9 @@ scripts/
 
 ## Plugin Formats
 Two formats coexist:
-- **Pure AgentSkills** (lucid-trade, lucid-predict, lucid-observability, lucid-defi): `skill.yaml` + `skills/*/SKILL.md` + `openclaw.plugin.json` + `HEARTBEAT.md`
-- **TypeScript Skills** (lucid-audit, lucid-veille, etc.): `src/` + `tsconfig.json` + `tsup.config.ts` + `vitest.config.ts` + `skills/`
+- **Pure AgentSkills** (lucid-trade, lucid-defi): `skill.yaml` + `skills/*/SKILL.md` + `openclaw.plugin.json` + `HEARTBEAT.md`
+- **TypeScript Skills** (lucid-audit, lucid-tax, lucid-predict, lucid-observability, lucid-veille, etc.): `src/` + `tsconfig.json` + `tsup.config.ts` + `vitest.config.ts` + `skills/`
+- **Brain Layer pattern** (lucid-predict, lucid-trade, lucid-audit, lucid-tax, lucid-observability): `src/brain/` with types, analysis, tools, formatter
 
 Both formats include a `package.json` and `skills/` directory with domain knowledge.
 
