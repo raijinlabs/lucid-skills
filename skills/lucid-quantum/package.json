@@ -1,0 +1,45 @@
+{
+  "name": "@raijinlabs/quantum",
+  "version": "1.0.0",
+  "description": "Lucid Quantum — Distributed GPU key search intelligence: fleet orchestration, target triage, wallet fingerprinting, mode optimization, brain wallet strategy, and autonomous agent playbooks",
+  "type": "module",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "quantum-mcp": "dist/bin.js"
+  },
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit",
+    "lint": "prettier --check .",
+    "format": "prettier --write ."
+  },
+  "keywords": [
+    "bitcoin",
+    "quantum",
+    "gpu",
+    "key-search",
+    "distributed-computing",
+    "wallet-fingerprinting",
+    "mcp",
+    "openclaw",
+    "brain-wallet",
+    "target-triage"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.26.0",
+    "zod": "^3.24.4"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.21",
+    "prettier": "^3.5.3",
+    "tsup": "^8.4.0",
+    "typescript": "^5.8.3",
+    "vitest": "^3.1.3"
+  }
+}

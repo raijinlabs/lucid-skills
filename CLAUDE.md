@@ -23,6 +23,7 @@ skills/
   lucid-metrics/          # Product analytics
   lucid-observability/    # Production monitoring (Sentry, OTel) v5.0 — 7 sub-skills + brain layer (5 AI tools)
   lucid-predict/          # Prediction markets (Polymarket, Manifold) v5.0
+  lucid-quantum/          # Bitcoin quantum key search intelligence v1.0 — 5 sub-skills + brain layer (9 AI tools) + 4 playbooks + memory
   lucid-propose/          # RFP / proposal engine
   lucid-prospect/         # Sales prospecting / lead discovery
   lucid-recruit/          # ATS / hiring pipeline
@@ -40,7 +41,7 @@ scripts/
 Two formats coexist:
 - **Pure AgentSkills** (lucid-trade, lucid-defi): `skill.yaml` + `skills/*/SKILL.md` + `openclaw.plugin.json` + `HEARTBEAT.md`
 - **TypeScript Skills** (lucid-audit, lucid-tax, lucid-predict, lucid-observability, lucid-veille, etc.): `src/` + `tsconfig.json` + `tsup.config.ts` + `vitest.config.ts` + `skills/`
-- **Brain Layer pattern** (lucid-predict, lucid-trade, lucid-audit, lucid-tax, lucid-observability): `src/brain/` with types, analysis, tools, formatter
+- **Brain Layer pattern** (lucid-predict, lucid-trade, lucid-audit, lucid-tax, lucid-observability, lucid-quantum): `src/brain/` with types, analysis, tools, formatter
 
 Both formats include a `package.json` and `skills/` directory with domain knowledge.
 
