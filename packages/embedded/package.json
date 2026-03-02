@@ -1,0 +1,41 @@
+{
+  "name": "@raijinlabs/lucid-skills-embedded",
+  "version": "1.0.0",
+  "description": "All lucid-skills MCP server factories bundled for in-process embedding",
+  "type": "module",
+  "main": "dist/index.js",
+  "files": ["dist"],
+  "scripts": {
+    "build": "tsup"
+  },
+  "peerDependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.0"
+  },
+  "devDependencies": {
+    "@raijinlabs/trade": "*",
+    "@raijinlabs/predict": "*",
+    "@raijinlabs/quantum": "*",
+    "@raijinlabs/seo": "*",
+    "@raijinlabs/audit": "*",
+    "@raijinlabs/tax": "*",
+    "@raijinlabs/veille": "*",
+    "@raijinlabs/hype": "*",
+    "@raijinlabs/compete": "*",
+    "@raijinlabs/prospect": "*",
+    "@raijinlabs/recruit": "*",
+    "@raijinlabs/bridge": "*",
+    "@raijinlabs/meet": "*",
+    "@raijinlabs/invoice": "*",
+    "@raijinlabs/propose": "*",
+    "@raijinlabs/metrics": "*",
+    "@raijinlabs/feedback": "*",
+    "@raijinlabs/video": "*",
+    "@raijinlabs/observability": "*",
+    "tsup": "^8.4.0",
+    "typescript": "^5.6.0"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "license": "MIT"
+}
